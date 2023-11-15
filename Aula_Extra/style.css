@@ -1,0 +1,194 @@
+@charset "UTF-8";
+
+* {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    font-size: 1.02em;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 20px;
+    font-size: 2.4em;
+}
+
+img {
+    display: block;
+    max-width: 100%; /*Faz com que as imagem fiquem responsivas, ela vai diminuir e aumentar até seu 100%*/
+}
+
+.header {
+    background-color: rgb(24, 24, 24);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    font-size: 1.1em;
+}
+
+.menu {
+    display: flex;
+}
+
+.menu li {
+    margin-left: 10px;
+}
+
+.menu li a {
+    display: block;
+    padding: 10px;
+}
+
+
+/* CSS FLEXBOX. São usados para interação com só linhas */
+
+.flex {
+    display: flex;
+    flex-wrap: wrap; /*Faz com que as imagem que não conseguirem ficar em 200px quebrarem para a linha a baixo*/
+    max-width: 800px;
+    margin: auto;
+}
+
+.flex > div {
+     /* O flex segue a seguinte parametro 0 Não e 1 Sim. 
+     Expansão Diminuição Tamanho Base (em px) */
+     flex: 1 1 200px;
+     margin: 10px;
+}
+
+.flex > div > p {
+    text-align: center;
+}
+
+
+/* CSS GRID LAYOUT 01. São usados para interação com linhas e colunas */
+
+.grid01 {
+    display: grid;
+    /*grid-template-columns: 1fr 1fr 1fr; O 1 fr é 100% fracional, nesse casso como tem 3 colunas, cada imagem vai ocupar 33,33% */
+    /*Também pode ser feito assim*/
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 800px;
+    padding: 10px; /*Foi utilizado para alinhar com as img do flexbox*/
+    margin: auto;
+    gap: 20px; /*Faz as margin entre as imagens*/
+}
+
+/*
+Você pode modificar cada grid por seu seletor, usando o :nth-child() e o número do filho.
+
+Você pode colocar o n + o número que ele vai selecionar todos os filhos depois do número escolhido, se no casso for 2, o filho 2 e os demais depois dele vai sofrer a alteração
+*/
+.grid01 > div:nth-child(n + 4) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    align-items: center;
+}
+
+/*Se a gente coloca-se só .anuncio, ele não funciona, pq está menos especifico do que a div aqui de cima. Logo precisou colocar o .grid01 > div.anuncio, para ele ficar bem especificado*/
+.grid01 > div.anuncio {
+    grid-column: 1;
+    grid-row: 2 / 5; /*Isso diz que o anuncio vai pegar a linha 2 até o 5, logo o 3 4 e 5. Atenção!! que a primeira linha é a linha do topo da imagem a 2 é final da primeira imagem*/
+    display: block;
+    margin: auto 0px; /*Para centralizar*/
+}
+
+
+/*No grid precisa ser feito a media query para arrumar em pequenas telas*/
+@media screen and (max-width: 600px) {
+    .grid01 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .grid01 > div:nth-child(n + 4) {
+        display: block;
+    }
+
+    /*O grid-column e row no auto faz com ele que se encaixe automaticamente, logo ele irá resetar para a ultima posição*/
+    .grid01 > div.anuncio {
+        grid-column: auto;
+        grid-row: auto;
+        order: -1; /*Foi feito para deixar o anúncio na primeira imagem e não mudou a ordem efetivamente (Só visualmente). Agora se precisasse realmente mudar, poderia da um grid-row: 1;*/
+        grid-column: 1/3;
+    }
+}
+
+
+/*CSS GRID 02*/
+
+/*Lembrando! Que a div.sidebar foi colocada as div das imagens, então eles vão permanecer juntas, mesmo se você colocar coluns 1fr 1fr 1fr e etc, já que pela div.grid2 só tem 2 div */
+.grid02 {
+    display: grid;
+    grid-template-columns: 1fr 200px;
+    gap: 20px;
+    max-width: 800px;
+    padding: 10px;
+    margin: auto;
+}
+
+.sidebar > div {
+    margin-bottom: 10px;
+}
+
+@media  (max-width: 600px) {
+    .grid02 {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        display: flex;
+        overflow: scroll;
+    }
+
+    .sidebar > div {
+        flex: 1 0 200px;
+        margin: 0 10px;
+    }
+}
+
+
+/*CSS GRID 03*/
+
+.grid03 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin: auto;
+    max-width: 800px;
+    padding: 10px;
+}
+
+.grid03-item:nth-child(1) {
+    grid-row: 1 / 3;
+}
+
+/*Você poderia colocar a legenda em cima da imagem, como no padrão colocando a legenda como relative ou absolute, e da um padding negativo, mas isso trás alguns bugs como visto na pratica haha. Então é bom fazer pelo grid mesmo.*/
+
+.grid03-item {
+    display: grid;
+}
+
+.grid03-item img {
+    grid-column: 1;
+    grid-row: 1/3;
+    align-self: end;
+}
+
+.grid03-item p {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 10px;
+    color: white;
+    grid-column: 1;
+    grid-row: 2;
+    align-self: end; /*Faz sempre alinhar ao final, pq se diminuir a imagem ele não fica certo se não tiver esse align*/
+}
