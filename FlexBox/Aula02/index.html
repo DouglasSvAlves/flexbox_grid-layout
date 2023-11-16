@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Site do guia: https://www.origamid.com/slide/css-flexbox/#/flex-wrap-->
+    <title>Aula 02 FlexBox</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        h1 {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: rgb(56, 56, 56);
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 5px;
+        }
+
+        .container {
+            border: 1px solid rgb(180, 180, 180);
+            max-width: 400px;
+            margin: auto;
+        }
+
+        .item {
+            background-color: tomato;
+            text-align: center;
+            font-size: 1.1em;
+            padding: 3px;
+            margin: 5px;
+        }
+
+        /*FlexBox*/
+        .container {
+            display: flex;
+        }
+
+        .item {
+            flex: 1; /*Para que os itens fiquem ocupando todo o container*/
+        }
+
+        .row {
+            flex-direction: row; /*É o padrão, sempre que não houver esse parametro, o display flex vai ser um row*/
+        }
+
+        .rowReverse {
+            flex-direction: row-reverse;
+        }
+
+        .column {
+            flex-direction: column;
+        }
+
+        .colReverse {
+            flex-direction: column-reverse;
+        }
+
+    </style>
+</head>
+<body>
+    <main>
+        <h1>flex direction: row;</h1>
+        <section class="container row">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+        </section>
+
+        <h1>flex direction: row-reverse;</h1>
+        <section class="container rowReverse"> 
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+        </section>
+
+        <h1>flex direction: column;</h1>
+        <section class="container column">
+            <div class="item"> 1</div>
+            <div class="item"> 2</div>
+            <div class="item"> 3</div>
+
+        </section>
+
+        <h1>flex direction: column-reverse;</h1>
+        <section class="container colReverse">
+            <div class="item"> 1</div>
+            <div class="item"> 2</div>
+            <div class="item"> 3</div>
+            <div class="item"> 4</div>
+        </section>
+    </main>
+</body>
+</html>

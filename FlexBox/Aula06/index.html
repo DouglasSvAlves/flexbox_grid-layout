@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Site do guia: https://www.origamid.com/slide/css-flexbox/#/flex-wrap-->
+    <title>Aula 06 FlexBox</title>
+    <style>
+        body {
+            font-family: monospace;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 20px 0 0 0;
+            font-size: 1.25em;
+            font-weight: normal;
+        }
+        /* Flex Container */
+        .container {
+            max-width: 420px;
+            margin: 0 auto;
+            display: flex;
+            border: 1px solid #ccc;
+        }
+
+        /* Flex Item */
+        .item {
+            flex: 1;
+            margin: 5px;
+            padding: 0 10px;
+            background: tomato;
+            text-align: center;
+            font-size: 1.5em;
+        }
+
+        .item:first-child {
+            padding-top: 20px;
+        }
+
+        .alinhamento-central { /*Para poder centralizar um item no centro tanto verticalmente quanto horizontalmente*/
+            height: 400px; /*É necessario definir a altura, se não ele vai fazer automatico e vai ficar lá em cima*/
+            justify-content: center; 
+            align-items: center;  /*O justify-content e align-items são sobre o container para os itens são outros. os itens são os filhos do container, o container são os itens que tem display: flex*/
+        }
+
+        .alinhamento-central .item {
+            flex: 0;
+            padding: 10px;
+        }
+
+
+        /*FlexBox*/
+
+        .stretch { /*Stretch = esticar*/
+            align-items: stretch; /*Faz com que todos dos itens acompanhe o height do item com o maior height. Essa é a maneira padrão do flexbox*/
+                                  /*Para o column ele faz com que a largura ocupe todo o container. É o modelo padrão*/
+        }
+
+        .flex-start {
+            align-items: flex-start; /*Faz height ocupar só o tamanho do item*/
+        }
+
+        .flex-end {
+            align-items: flex-end; /*Fica alinhado ao final*/
+        }
+
+        .center {
+            align-items: center; /*Fica alinhado ao centro*/
+        }
+
+        .baseline {
+            align-items: baseline; /*Fica de acordo com a typografia, de acordo com a linha de base do item. Nesse exemplo ele alinhou todo a base do item que tem o 1*/
+        }
+
+        .column {
+            flex-direction: column; 
+        }
+        
+    </style>
+</head>
+<body>
+    <main>
+        <h1>align-items: stretch;</h1>
+        <section class="container stretch">
+            <div class="item">1</div>
+            <div class="item">Teste 2 do Item</div>
+            <div class="item">Teste 3 do Item Agora Mesmo</div>
+            <div class="item">Teste 4</div>
+        </section>
+
+        <h1>align-items: flex-start;</h1>
+        <section class="container flex-start">
+            <div class="item">1</div>
+            <div class="item">Teste 2 do Item</div>
+            <div class="item">Teste 3 do Item Agora Mesmo</div>
+            <div class="item">Teste 4</div>
+        </section>
+
+        <h1>align-items: flex-end;</h1>
+        <section class="container flex-end">
+            <div class="item">1</div>
+            <div class="item">Teste 2 do Item</div>
+            <div class="item">Teste 3 do Item Agora Mesmo</div>
+            <div class="item">Teste 4</div>
+        </section>
+
+        <h1>align-items: center;</h1>
+        <section class="container center">
+            <div class="item">1</div>
+            <div class="item">Teste 2 do Item</div>
+            <div class="item">Teste 3 do Item Agora Mesmo</div>
+            <div class="item">Teste 4</div>
+        </section>
+
+        <h1>align-items: baseline;</h1>
+        <section class="container baseline">
+            <div class="item teste">1</div>
+            <div class="item">Teste 2 do Item</div>
+            <div class="item">Teste 3 do Item Agora Mesmo</div>
+            <div class="item">Teste 4</div>
+        </section>
+
+        <h1>align-items: flex-stretch; // column</h1>
+        <section class="container stretch column">
+            <div class="item">1</div>
+            <div class="item">Teste 2 do Item</div>
+            <div class="item">Teste 3 do Item Agora Mesmo</div>
+            <div class="item">Teste 4</div>
+        </section>
+
+        <h1>align-items: flex-start; // column</h1>
+        <section class="container flex-start column">
+            <div class="item">1</div>
+            <div class="item">Teste 2 do Item</div>
+            <div class="item">Teste 3 do Item Agora Mesmo</div>
+            <div class="item">Teste 4</div>
+        </section>
+
+        <h1>align-items: flex-end; // column</h1>
+        <section class="container flex-end column">
+            <div class="item">1</div>
+            <div class="item">Teste 2 do Item</div>
+            <div class="item">Teste 3 do Item Agora Mesmo</div>
+            <div class="item">Teste 4</div>
+        </section>
+
+        <h1>align-items: center; // column</h1>
+        <section class="container center column">
+            <div class="item">1</div>
+            <div class="item">Teste 2 do Item</div>
+            <div class="item">Teste 3 do Item Agora Mesmo</div>
+            <div class="item">Teste 4</div>
+        </section>
+
+        <h1>align-items: baseline; // column</h1>
+        <section class="container baseline column">
+            <div class="item teste">1</div>
+            <div class="item">Teste 2 do Item</div>
+            <div class="item">Teste 3 do Item Agora Mesmo</div>
+            <div class="item">Teste 4</div>
+        </section>
+
+        <h1>align-items: center; e justfy-content: center;</h1>
+        <section class="container alinhamento-central">
+            <div class="item">Esse item está verticalmente alinhado ao centro.</div>
+        </section>
+    </main>
+</body>
+</html>

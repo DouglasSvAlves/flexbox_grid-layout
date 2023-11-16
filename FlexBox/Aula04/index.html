@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Site do guia: https://www.origamid.com/slide/css-flexbox/#/flex-wrap-->
+    <title>Aula 04 FlexBox</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        h1 {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: rgb(56, 56, 56);
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 5px;
+        }
+
+        .container {
+            border: 1px solid rgb(180, 180, 180);
+            max-width: 400px;
+            margin: auto;
+        }
+
+        .item {
+            background-color: tomato;
+            text-align: center;
+            font-size: 1.3em;
+            padding: 3px;
+            margin: 5px;
+        }
+
+        /*FlexBox*/
+        .container {
+            display: flex;
+        }
+
+        .item {
+            flex: 1; /*Para que os itens fiquem ocupando todo o container*/
+        }
+
+        .rowNowrap {
+            flex-flow: row nowrap; /*O parametro flex-flow é só um shorthand do flex-direction e flex-wrap*/
+        }
+
+        .rowWrap {
+            flex-flow: row wrap;
+        }
+
+        .colNowrap {
+            flex-flow: column nowrap;
+        }
+
+        .colWrap {
+            flex-flow: column wrap;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>flex-flow: row nowrap;</h1>
+        <section class="container rowNowrap">
+            <div class="item">TestedoItem1</div>
+            <div class="item">TestedoItem2</div>
+            <div class="item">TestedoItem3</div>
+        </section>
+
+        <h1>flex-flow: row wrap;</h1>
+        <section class="container rowWrap"> 
+            <div class="item">TestedoItem1</div>
+            <div class="item">TestedoItem2</div>
+            <div class="item">TestedoItem3</div>
+        </section>
+
+        <h1>flex-flow: column nowrap;</h1>
+        <section class="container colNowrap">
+            <div class="item">TestedoItem1</div>
+            <div class="item">TestedoItem2</div>
+            <div class="item">TestedoItem3</div>
+        </section>
+
+        <h1>flex-flow: column wrap;</h1>
+        <section class="container colWrap">
+            <div class="item">TestedoItem1</div>
+            <div class="item">TestedoItem2</div>
+            <div class="item">TestedoItem3</div>
+        </section>
+    </main>
+</body>
+</html>

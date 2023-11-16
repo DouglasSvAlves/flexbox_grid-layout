@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Site do guia: https://www.origamid.com/slide/css-flexbox/#/flex-wrap-->
+    <title>Aula 01 FlexBox</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        h1 {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: rgb(56, 56, 56);
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 5px;
+        }
+
+        .container {
+            border: 1px solid rgb(180, 180, 180);
+            max-width: 400px;
+            margin: auto;
+        }
+
+        .item {
+            background-color: tomato;
+            text-align: center;
+            font-size: 1.1em;
+            padding: 3px;
+            margin: 5px;
+        }
+
+        /*FlexBox*/
+
+        .flex {
+            display: flex;
+        }
+
+        .wrap {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .flex-item-1 {
+            flex: 1;  /*Faz com que o conteiner sejá 100% usado, logo se tiver 2 filhos vão ser 50% para cada, se for 4 é 25% e assim em diante*/
+        }
+
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Display block;</h1>
+        <section class="container">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+        </section>
+
+        <h1>Display flex;</h1>
+        <section class="container flex"> <!--Se colocar a class assim separado com espaços, representa duas class na section, então vai está atuando o css do container e também do flex-->
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+        </section>
+
+        <h1>Display flex;</h1>
+        <section class="container flex">
+            <div class="item">Teste 1</div>
+            <div class="item">Teste 2</div>
+            <div class="item">Teste 3</div>
+            <div class="item">Teste 4</div>
+            <div class="item">Teste 5</div>
+            <div class="item">Teste 6</div>
+            <div class="item">Teste 7</div>
+        </section>
+
+        <h1>Display flex; Flex wrap</h1>
+        <section class="container wrap">
+            <div class="item">Teste 1</div>
+            <div class="item">Teste 2</div>
+            <div class="item">Teste 3</div>
+            <div class="item">Teste 4</div>
+            <div class="item">Teste 5</div>
+            <div class="item">Teste 6</div>
+            <div class="item">Teste 7</div>
+        </section>
+
+        <h1>Display flex; Flex item</h1>
+        <section class="container flex">
+            <div class="item flex-item-1">Teste 1</div>
+            <div class="item flex-item-1">Teste 2</div>
+            <div class="item flex-item-1">Teste 3</div>
+        </section>
+    </main>
+</body>
+</html>
