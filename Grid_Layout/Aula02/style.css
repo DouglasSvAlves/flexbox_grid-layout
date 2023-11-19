@@ -1,0 +1,83 @@
+@charset "UTF-8";
+/* O guia está no link: https://www.origamid.com/projetos/css-grid-layout-guia-completo/ */
+
+/* Grid */
+.grid {
+	display: grid;
+}
+
+/* 100px é o valor total, ignora conteúdo, margem e etc. Respeita apenas o min-width do item.*/
+.grid-template-columns-1 {
+	grid-template-columns: 100px 100px 100px 100px;
+}
+
+/* fr é uma unidade fracional */
+.grid-template-columns-2 { /*O fr respeita o tamanho da palavra, já quando você colocar um valor ex 100px ele vai ficar em 100px mesmo se a palavra for maior, como no exemplo 02*/
+	grid-template-columns: 1fr 2fr;
+}
+
+/* minmax define um valor mínimo e máximo para a coluna */
+.grid-template-columns-3 { /*Nesse fez o minimo da primeira coluna ser 200px e o maximo a 1fr que será igual aos demais, só que se diminuir a tela a menos de 200px, a primeira coluna vai se manter em 200px e as demais irá diminuir conforme a fração dos 3 itens*/
+	/*Lembrando que o fr diminuem primeiro do que os com valor minmax definido em px*/
+	grid-template-columns: minmax(200px, 1fr) 1fr 1fr;
+}
+
+/* O repeat vai repetir o número de colunas */
+.grid-template-columns-4 {
+	grid-template-columns: repeat(3, 1fr); /*o 3 é q quantidade de vez que vai se repetir e depois vem a unidade/tamanho*/
+	/*grid-template-colums: 2fr repeat(3, 1fr) 2fr  Também funciona ai no caso vai ser criado a primeira coluna com 2fr, depois vai criar 3 colunas com 1 fr e por fim a ultima coluna com 2fr*/
+}
+
+/* Auto-fit vai calcular automaticamente o total de colunas */
+.grid-template-columns-5 {
+	grid-template-columns: repeat(auto-fit, 100px);
+}
+
+/* Com o auto-fit realmente é criado um layout responsivo */
+.grid-template-columns-6 {
+	grid-template-columns: repeat(auto-fit, minmax(100px, auto));
+	max-width: 700px !important; 
+	/*O !important faz com que a hierarquia desse parametro seja maior e respeita ele, ao invez do parametro delimitado lá em baixo, como ele foi feito depois, por padrão ele teria uma hierarquia maior do que esse aqui colocado de 600px*/
+}
+
+/* Com o auto-fill ele cria colunas idependete de ter ou não conteúdo, ai gera umas colunas em branco. O auto-fit é mais interessante */
+.grid-template-columns-7 {
+	grid-template-columns: repeat(auto-fill, minmax(100px, auto));
+	max-width: 700px !important;
+}
+
+
+/* Estilos Gerais */
+.item {
+	margin: 5px;
+	background: tomato;
+	text-align: center;
+	font-size: 1.5em;
+}
+
+.grid {
+	max-width: 400px;
+	margin: 0 auto;
+	border: 1px solid #ccc;
+}
+
+h1 {
+	text-align: center;
+	font-size: 1.25em;
+	font-weight: normal;
+}
+
+body {
+	font-family: monospace;
+	color: #333;
+	margin: 0px;
+	padding-bottom: 60px;
+}
+
+body > div {
+	padding: 40px 0;
+}
+
+body > div:nth-of-type(even) {
+	background: rgba(0,0,0,.03);
+}

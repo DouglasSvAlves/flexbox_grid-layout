@@ -1,0 +1,99 @@
+@charset "UTF-8";
+/* O guia está no link: https://www.origamid.com/projetos/css-grid-layout-guia-completo/ */
+
+/* Grid */
+.grid {
+	display: grid;
+}
+.grid-template {
+	grid-template:
+		"logo nav nav" 50px
+		"sidenav content advert" 150px
+		"sidenav footer footer" 100px
+		/ 100px 1fr 50px;
+}
+
+.gap { /*O gap faz a separação dos itens, como o margin, só que diferente dela, ele só faz a distancia interna, a externa continua a mesma coisa, por isso no exemplo 01 está colada com o container, e isso é bom para sites*/
+	gap: 20px;
+	/*padding: 20px É possivel utilizar Padding ou Margin para da a margin externa ou separar o iten da borda do container*/
+}
+
+.column-gap {
+	gap: 2px;
+	column-gap: 20px;
+}
+
+.row-gap {
+	gap: 2px;
+	row-gap: 20px;
+}
+
+.margin {
+	margin-top: 10px;
+	margin-left: 20px;
+	margin-bottom: 50px;
+}
+
+.logo {
+	grid-area: logo;
+}
+
+.nav {
+	grid-area: nav;
+}
+
+.content {
+	grid-area: content;
+}
+
+.sidenav {
+	grid-area: sidenav;
+}
+
+.advert {
+	grid-area: advert;
+}
+
+.footer {
+	grid-area: footer;
+}
+
+/* Grid Item */
+.item {
+	background: tomato;
+	text-align: center;
+	font-size: 1.5em;
+}
+
+.grid {
+	max-width: 400px;
+	margin: 0 auto;
+	border: 1px solid #ccc;
+}
+
+h1 {
+	text-align: center;
+	font-size: 1.25em;
+	font-weight: normal;
+}
+
+body {
+	font-family: monospace;
+	color: #333;
+	padding-bottom: 60px;
+	margin: 0px;
+}
+
+body > div {
+	padding: 40px 0;
+}
+
+body > div:nth-of-type(even) {
+	background: rgba(0,0,0,.03);
+}
+
+body > div > img {
+	display: block;
+	margin: 0 auto;
+	max-width: 100%;
+}

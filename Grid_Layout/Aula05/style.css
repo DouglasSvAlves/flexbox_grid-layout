@@ -1,0 +1,85 @@
+@charset "UTF-8";
+/* O guia está no link: https://www.origamid.com/projetos/css-grid-layout-guia-completo/ */
+
+/* Grid */
+.grid {
+	display: grid;
+}
+
+.grid-template-1 { /*O grid-template é um shorthand. Nele sempre é primeiro a linha e depois coluna, separados por "/" */
+	grid-template: 100px 50px / repeat(3, 1fr);
+}
+
+.grid-template-2 {
+	grid-template: /*Ao lado é o tamanho da linha*/
+		"logo nav nav" 50px
+		"sidenav content advert" 150px
+		"sidenav footer footer" 100px
+		/ 100px 1fr 50px;
+		/*aqui no fundo é o tamanho da coluna, precisa do "/" */
+}
+
+.logo {
+	grid-area: logo;
+}
+
+.nav {
+	grid-area: nav;
+}
+
+.content {
+	grid-area: content;
+}
+
+.sidenav {
+	grid-area: sidenav;
+}
+
+.advert {
+	grid-area: advert;
+}
+
+.footer {
+	grid-area: footer;
+}
+
+/* Grid Item */
+.item {
+	margin: 5px;
+	background: tomato;
+	text-align: center;
+	font-size: 1.5em;
+}
+
+.grid {
+	max-width: 400px;
+	margin: 0 auto;
+	border: 1px solid #ccc;
+}
+
+h1 {
+	text-align: center;
+	font-size: 1.25em;
+	font-weight: normal;
+}
+
+body {
+	font-family: monospace;
+	color: #333;
+	padding-bottom: 60px;
+	margin: 0px;
+}
+
+body > div {
+	padding: 40px 0;
+}
+
+body > div:nth-of-type(even) {
+	background: rgba(0,0,0,.03);
+}
+
+body > div > img {
+	display: block;
+	margin: 0 auto;
+	max-width: 100%;
+}

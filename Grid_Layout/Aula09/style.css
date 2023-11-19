@@ -1,0 +1,72 @@
+@charset "UTF-8";
+/* O guia está no link: https://www.origamid.com/projetos/css-grid-layout-guia-completo/ */
+
+/* Grid */
+.grid {
+	display: grid;
+}
+
+.grid-auto-flow-1 { /*O grid-auto-flow ele define se quando não tem espaço no container ele vai gerar colunas ou linhas, por padrão faz linha*/
+	grid-auto-flow: column;
+}
+
+.grid-auto-flow-2 { /*O exemplo 02, explica que se você definir a quantidade de linhas, o grid-auto-flow vai respeitar o container e passar para a linha de baixo e se mesmo assim não couber ele extoura o container*/
+	grid-template-columns: repeat(2, minmax(100px, 1fr));
+	grid-template-rows: 50px 50px;
+	grid-auto-columns: 100px;
+	grid-auto-flow: column;
+}
+
+.grid-auto-flow-3 {
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-auto-flow: dense; /*O dense faz ele encaixar aonde tem espaço idependente da orde, é bom para uma lista de foto por exemplo que a ordem não importa. PARA MELHOR VISUALIZ AÇÂO: retie o dense e veja como ficaria sem e como ficou com ele ativo*/
+}
+
+.item-2 {
+	grid-column: span 3; /*O span faz a linha espandir para 3 linhas*/
+}
+
+.item-4 {
+	grid-column: span 3;
+}
+
+/* Grid Item */
+.item {
+	margin: 5px;
+	background: tomato;
+	text-align: center;
+	font-size: 1.5em;
+}
+
+.grid {
+	max-width: 400px;
+	margin: 0 auto;
+	border: 1px solid #ccc;
+}
+
+h1 {
+	text-align: center;
+	font-size: 1.25em;
+	font-weight: normal;
+}
+
+body {
+	font-family: monospace;
+	color: #333;
+	padding-bottom: 60px;
+	margin: 0px;
+}
+
+body > div {
+	padding: 40px 0;
+}
+
+body > div:nth-of-type(even) {
+	background: rgba(0,0,0,.03);
+}
+
+body > div > img {
+	display: block;
+	margin: 0 auto;
+	max-width: 100%;
+}

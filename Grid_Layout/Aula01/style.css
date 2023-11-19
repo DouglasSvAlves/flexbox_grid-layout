@@ -3,10 +3,10 @@
 
 /* Grid Container */
 .grid {
-	display: grid;
+	display: grid; /*Se você colocar display grid, só ele não vai funcionar, precisa de outros parametros também. Como no exemplo 02*/
 }
 
-.grid-template-columns {
+.grid-template-columns { /*Geralmente tudo que for grid-template, ele está falando com o container*/
 	grid-template-columns: 200px 200px;
 }
 
@@ -17,7 +17,7 @@
 .subgrid {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
-	grid-gap: 10px;
+	grid-gap: 10px; /*Faz o espaçamento entre os grid's*/
 }
 
 .subgrid > div {
